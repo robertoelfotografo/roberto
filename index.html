@@ -1565,6 +1565,250 @@
         .policy-rule-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
         .policy-rule strong { color: var(--parchment); display: block; margin-bottom: 1px; }
 
+        /* ─────────────────── PACKAGE CONFIGURATOR ─────────────────── */
+        .configurator-section {
+            padding: 80px 24px;
+        }
+        .configurator-wrap {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 28px;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .configurator-wrap { grid-template-columns: 1fr; }
+            .config-sticky { position: static !important; }
+        }
+        .config-sticky {
+            position: sticky;
+            top: 80px;
+        }
+        /* Modules */
+        .config-module {
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(200,169,110,.15);
+            border-radius: 14px;
+            padding: 22px 24px;
+            margin-bottom: 14px;
+            transition: border-color .25s;
+        }
+        .config-module:hover { border-color: rgba(200,169,110,.3); }
+        .config-module-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+        .config-module-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--parchment);
+        }
+        .config-module-icon { font-size: 1.2rem; }
+        .config-module-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+        /* Slider */
+        .config-slider-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .config-slider {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(200,169,110,.2);
+            outline: none;
+        }
+        .config-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--gold);
+            cursor: pointer;
+            border: 2px solid var(--ink);
+            box-shadow: 0 0 0 3px rgba(200,169,110,.25);
+        }
+        .config-slider::-moz-range-thumb {
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--gold);
+            cursor: pointer;
+            border: 2px solid var(--ink);
+        }
+        .config-slider-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            min-width: 60px;
+            text-align: center;
+        }
+        /* Toggle switch */
+        .config-toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .config-toggle-label {
+            font-size: .82rem;
+            color: var(--mist);
+            line-height: 1.4;
+        }
+        .config-toggle {
+            position: relative;
+            width: 44px; height: 24px;
+            flex-shrink: 0;
+        }
+        .config-toggle input { display: none; }
+        .config-toggle-track {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(200,169,110,.2);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all .25s;
+        }
+        .config-toggle-track::after {
+            content: '';
+            position: absolute;
+            width: 16px; height: 16px;
+            background: var(--mist);
+            border-radius: 50%;
+            top: 3px; left: 3px;
+            transition: all .25s;
+        }
+        .config-toggle input:checked + .config-toggle-track {
+            background: rgba(200,169,110,.2);
+            border-color: var(--gold);
+        }
+        .config-toggle input:checked + .config-toggle-track::after {
+            background: var(--gold);
+            left: 23px;
+        }
+        /* Quantity buttons */
+        .config-qty-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .config-qty-btn {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(200,169,110,.3);
+            background: transparent;
+            color: var(--gold);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .2s;
+            font-family: inherit;
+        }
+        .config-qty-btn:hover {
+            background: rgba(200,169,110,.12);
+            border-color: var(--gold);
+        }
+        .config-qty-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            min-width: 52px;
+            text-align: center;
+        }
+        .config-qty-sub {
+            font-size: .72rem;
+            color: var(--gold-dk);
+        }
+        /* Summary card */
+        .config-summary {
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(200,169,110,.25);
+            border-radius: 16px;
+            padding: 28px;
+        }
+        .config-summary-title {
+            font-family: 'Cinzel', serif;
+            font-size: .62rem;
+            letter-spacing: .3em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .config-total {
+            text-align: center;
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(200,169,110,.07);
+            border: 1px solid rgba(200,169,110,.2);
+            border-radius: 12px;
+        }
+        .config-total-label {
+            font-size: .65rem;
+            letter-spacing: .2em;
+            color: var(--mist);
+            text-transform: uppercase;
+        }
+        .config-total-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1.1;
+            display: block;
+        }
+        .config-total-iva {
+            font-size: .7rem;
+            color: var(--gold-dk);
+        }
+        .config-line-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .config-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .8rem;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(200,169,110,.07);
+        }
+        .config-line-name { color: var(--mist); }
+        .config-line-val  { color: var(--gold); font-weight: 500; }
+        .config-line.base .config-line-name { color: var(--parchment); font-weight: 500; }
+        .config-empty {
+            text-align: center;
+            font-size: .8rem;
+            color: var(--gold-dk);
+            font-style: italic;
+            padding: 12px 0;
+        }
+        .config-reset {
+            background: transparent;
+            border: 1px solid rgba(200,169,110,.2);
+            color: var(--mist);
+            font-size: .72rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all .2s;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .config-reset:hover { border-color: var(--gold); color: var(--gold); }
+
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(22px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -1688,7 +1932,12 @@
                     <button class="menu-btn" onclick="quickShow('session')">
                         <span class="menu-icon">📸</span>
                         <span class="menu-title">Sesiones de Fotos</span>
-                        <span class="menu-sub">Estudio, Maternidad, Familia...</span>
+                        <span class="menu-sub">Estudio, Familia, Pareja, Retrato...</span>
+                    </button>
+                    <button class="menu-btn" onclick="quickShow('maternity')" style="border-color: rgba(230,193,204,.4);">
+                        <span class="menu-icon">🤰</span>
+                        <span class="menu-title" style="color:#e6c1cc;">Maternidad</span>
+                        <span class="menu-sub">Mini, Clásica, Esencia, Dulce Espera</span>
                     </button>
                     <button class="menu-btn biz" onclick="quickShow('negocio')">
                         <span class="menu-icon">🏢</span>
@@ -1704,6 +1953,11 @@
                         <span class="menu-icon">👁</span>
                         <span class="menu-title">Ver Todo el Catálogo</span>
                         <span class="menu-sub">Sin filtros</span>
+                    </button>
+                    <button class="menu-btn full-row" onclick="scrollToConfigurator()" style="border-color: rgba(200,169,110,.5); background: rgba(200,169,110,.06);">
+                        <span class="menu-icon">⚙️</span>
+                        <span class="menu-title" style="color: var(--gold);">Armar mi Paquete a la Medida</span>
+                        <span class="menu-sub">Elige cada elemento y ve el precio en tiempo real</span>
                     </button>
                 </div>
             </div>
@@ -2018,7 +2272,7 @@
                     <span class="pkg-number">E / VIDEO BREVE</span>
                     <h3 class="pkg-name">Video Express</h3>
                     <p class="pkg-sub">Solo Video · Evento Corto ~2 hrs</p>
-                    <div class="pkg-price">$2,500<small> MXN</small></div>
+                    <div class="pkg-price">$2,200<small> MXN</small></div>
                     <p class="pkg-desc">Para ceremonias civiles, bautizos, graduaciones o eventos breves donde lo importante es tener el video del momento.</p>
                     <div class="pkg-rule"></div>
                     <ul class="pkg-list">
@@ -2122,7 +2376,7 @@
                     <span class="pkg-number">E / COMPROMISO</span>
                     <h3 class="pkg-name">Sesión de Compromiso</h3>
                     <p class="pkg-sub">Pre-Boda · Engagement</p>
-                    <div class="pkg-price">$2,500<small> MXN</small></div>
+                    <div class="pkg-price">$2,800<small> MXN</small></div>
                     <p class="pkg-desc">La sesión perfecta antes del gran día. Úsala para invitaciones, decoración del salón o simplemente como recuerdo del "sí, acepto".</p>
                     <div class="pkg-rule"></div>
                     <ul class="pkg-list">
@@ -2192,6 +2446,94 @@
                         <li>Descuento especial para instituciones con más de 1 evento al año</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── MATERNIDAD ── -->
+    <section id="sec-maternidad" class="section-wrap" style="padding-top: 0;">
+        <div class="wrap">
+            <div class="reveal">
+                <div class="fancy-hr"><span class="fancy-hr-icon">◆</span></div>
+                <span class="section-label" style="color:#e6c1cc;">Línea Especializada</span>
+                <h2 class="section-title">Sesiones de <em style="color:#e6c1cc;">Maternidad</em></h2>
+                <div class="section-rule"><div class="section-rule-dot" style="background:#e6c1cc;"></div></div>
+            </div>
+
+            <div class="text-box reveal" style="border-color: rgba(230,193,204,.4);">
+                <p><strong>La belleza de la espera.</strong> Una línea especializada para documentar tu maternidad con una estética suave, elegante y emocional. Elige una experiencia breve, una sesión completa o el paquete integral con bienvenida del bebé.</p>
+            </div>
+
+            <div class="pkg-grid reveal">
+
+                <!-- MINI MATERNIDAD -->
+                <div class="pkg-card" style="border-color: rgba(230,193,204,.2);">
+                    <span class="pkg-number" style="color:#c4909a;">MINI / MATERNIDAD</span>
+                    <h3 class="pkg-name">Mini Maternidad</h3>
+                    <p class="pkg-sub">Breve · Solo Estudio</p>
+                    <div class="pkg-price" style="color:#e6c1cc;">$750<small style="color:#c4909a;"> MXN</small></div>
+                    <p class="pkg-desc">Ideal para una sesión sencilla, rápida y delicada. Primer acercamiento a la fotografía de maternidad.</p>
+                    <div class="pkg-rule"></div>
+                    <ul class="pkg-list">
+                        <li>30 minutos · Solo estudio</li>
+                        <li>1 cambio de ropa</li>
+                        <li>10 fotos digitales editadas</li>
+                    </ul>
+                </div>
+
+                <!-- CLÁSICA MATERNIDAD -->
+                <div class="pkg-card" style="border-color: rgba(230,193,204,.2);">
+                    <span class="pkg-number" style="color:#c4909a;">CLÁSICA / MATERNIDAD</span>
+                    <h3 class="pkg-name">Maternidad Clásica</h3>
+                    <p class="pkg-sub">Más tiempo · Más variedad visual</p>
+                    <div class="pkg-price" style="color:#e6c1cc;">$1,500<small style="color:#c4909a;"> MXN</small></div>
+                    <p class="pkg-desc">El equilibrio perfecto entre tiempo, variedad y valor. Estudio o una locación que tenga significado para ti.</p>
+                    <div class="pkg-rule"></div>
+                    <ul class="pkg-list">
+                        <li>60 minutos · Estudio o locación</li>
+                        <li>2 cambios de ropa</li>
+                        <li>Galería completa 30+ fotos</li>
+                        <li>15 fotos digitales editadas para descarga</li>
+                    </ul>
+                </div>
+
+                <!-- ESENCIA MATERNIDAD -->
+                <div class="pkg-card" style="border-color: rgba(230,193,204,.5); background: rgba(230,193,204,.04); position:relative; overflow:hidden;">
+                    <div style="position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, transparent, rgba(230,193,204,.6), transparent);"></div>
+                    <span class="pkg-number" style="color:#c4909a;">ESENCIA / MATERNIDAD</span>
+                    <h3 class="pkg-name">Maternidad Esencia</h3>
+                    <p class="pkg-sub" style="color:#e6c1cc;">La experiencia editorial · Destacado</p>
+                    <div class="pkg-price" style="color:#e6c1cc;">$2,500<small style="color:#c4909a;"> MXN</small></div>
+                    <p class="pkg-desc">La opción más completa para una sesión de maternidad individual. Dirección artística plena, locación a elegir y recuerdo impreso incluido.</p>
+                    <div class="pkg-rule"></div>
+                    <ul class="pkg-list">
+                        <li>90 minutos · Estudio o locación</li>
+                        <li>3 cambios de ropa</li>
+                        <li>Galería completa 30+ fotos</li>
+                        <li>20 fotos digitales editadas para descarga</li>
+                        <li><strong>Ampliación enmarcada 16×20" (Madera)</strong> incluida</li>
+                    </ul>
+                </div>
+
+                <!-- DULCE ESPERA -->
+                <div class="pkg-card" style="border-color: rgba(230,193,204,.5); background: rgba(230,193,204,.04); position:relative; overflow:hidden;">
+                    <div style="position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, transparent, rgba(230,193,204,.6), transparent);"></div>
+                    <span class="pkg-number" style="color:#c4909a;">BUNDLE / DULCE ESPERA</span>
+                    <h3 class="pkg-name">Dulce Espera</h3>
+                    <p class="pkg-sub" style="color:#e6c1cc;">Maternidad + Bienvenida del Bebé</p>
+                    <div class="pkg-price" style="color:#e6c1cc;">$4,200<small style="color:#c4909a;"> MXN</small></div>
+                    <p class="pkg-desc">Documenta la espera <strong>y</strong> la llegada en una sola experiencia. Dos sesiones, un solo recuerdo que durará toda la vida.</p>
+                    <div class="pkg-rule"></div>
+                    <ul class="pkg-list">
+                        <li>Sesión de maternidad 90 min (estudio)</li>
+                        <li>Sesión recién nacido lifestyle (en el hogar)</li>
+                        <li>3 cambios de ropa en maternidad</li>
+                        <li>Galería completa 60+ fotos (ambas sesiones)</li>
+                        <li><strong>Ampliación enmarcada 16×20" (Madera)</strong> incluida</li>
+                    </ul>
+                    <p style="margin-top:14px; font-size:.78rem; color:#c4909a; font-style:italic;">Las dos sesiones se coordinan según la semana de gestación y la llegada del bebé.</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -2270,7 +2612,7 @@
                     <span class="pkg-number">B / PRODUCTO</span>
                     <h3 class="pkg-name">Fotografía de Producto</h3>
                     <p class="pkg-sub">E-commerce, menús y catálogos</p>
-                    <div class="pkg-price" style="color:#7ab3e0;">$2,500<small style="color:#3a6090;"> MXN</small></div>
+                    <div class="pkg-price" style="color:#7ab3e0;">$2,800<small style="color:#3a6090;"> MXN</small></div>
                     <p class="pkg-desc">Perfecto para restaurantes (apps de delivery), tiendas online o artesanos.</p>
                     <div class="pkg-rule"></div>
                     <ul class="pkg-list">
@@ -2283,7 +2625,7 @@
                     <span class="pkg-number">C / HÍBRIDO</span>
                     <h3 class="pkg-name">Día de Contenido Híbrido</h3>
                     <p class="pkg-sub">Batch Creation · Foto + Video Clips</p>
-                    <div class="pkg-price" style="color:#7ab3e0;">$2,500<small style="color:#3a6090;"> MXN</small></div>
+                    <div class="pkg-price" style="color:#7ab3e0;">$2,900<small style="color:#3a6090;"> MXN</small></div>
                     <p class="pkg-desc">Genera tu banco de contenido del mes en una sola visita intensiva.</p>
                     <div class="pkg-rule"></div>
                     <ul class="pkg-list">
@@ -2587,26 +2929,32 @@
                                     <option value="Paquete Deluxe — Foto, Video, Sesión & Redes ($9,000 MXN)">Paquete Deluxe — Foto, Video, Sesión & Redes ($9,000)</option>
                                     <option value="Paquete Celebrity — VIP completo ($12,500 MXN)">Paquete Celebrity — VIP completo ($12,500)</option>
                                 </optgroup>
+                                <optgroup label="🤰 Maternidad">
+                                    <option value="Mini Maternidad ($750 MXN)">Mini Maternidad ($750)</option>
+                                    <option value="Maternidad Clásica ($1,500 MXN)">Maternidad Clásica ($1,500)</option>
+                                    <option value="Maternidad Esencia ($2,500 MXN)">Maternidad Esencia ($2,500)</option>
+                                    <option value="Dulce Espera — Maternidad + Recién Nacido ($4,200 MXN)">Dulce Espera — Mat. + Recién Nacido ($4,200)</option>
+                                </optgroup>
                                 <optgroup label="📸 Sesiones Fotográficas">
                                     <option value="Mini Sesión ($750 MXN)">Mini Sesión ($750)</option>
                                     <option value="Sesión Clásica ($1,500 MXN)">Sesión Clásica ($1,500)</option>
                                     <option value="Sesión Premium con impresión ($2,500 MXN)">Sesión Premium con impresión ($2,500)</option>
                                     <option value="Sesión de Pareja ($1,800 MXN)">Sesión de Pareja ($1,800)</option>
-                                    <option value="Sesión de Compromiso / Engagement ($2,500 MXN)">Sesión de Compromiso / Engagement ($2,500)</option>
+                                    <option value="Sesión de Compromiso / Engagement ($2,800 MXN)">Sesión de Compromiso / Engagement ($2,800)</option>
                                     <option value="Paquete Graduación ($3,200 MXN)">Paquete Graduación ($3,200)</option>
                                     <option value="Sesión Infantil ($900 MXN)">Sesión Infantil ($900)</option>
                                     <option value="Cobertura Evento Escolar ($2,000 MXN)">Cobertura Evento Escolar ($2,000)</option>
                                 </optgroup>
                                 <optgroup label="🏢 Negocios & Marcas">
                                     <option value="Retrato Corporativo ($1,800 MXN)">Retrato Corporativo ($1,800)</option>
-                                    <option value="Fotografía de Producto ($2,500 MXN)">Fotografía de Producto ($2,500)</option>
-                                    <option value="Día de Contenido Híbrido ($2,500 MXN)">Día de Contenido Híbrido ($2,500)</option>
+                                    <option value="Fotografía de Producto ($2,800 MXN)">Fotografía de Producto ($2,800)</option>
+                                    <option value="Día de Contenido Híbrido ($2,900 MXN)">Día de Contenido Híbrido ($2,900)</option>
                                     <option value="Imagen Corporativa Completa — Producción Premium ($7,500 MXN)">Imagen Corporativa Completa — Producción Premium ($7,500)</option>
                                     <option value="Membresía Iguala Visual ($2,500 MXN/mes)">Membresía Iguala Visual ($2,500/mes)</option>
                                 </optgroup>
                                 <optgroup label="🎬 Video Solo">
                                     <option value="Video Recuerdo — Evento completo ($4,500 MXN)">Video Recuerdo — Evento completo ($4,500)</option>
-                                    <option value="Video Express — Evento breve ($2,500 MXN)">Video Express — Evento breve ($2,500)</option>
+                                    <option value="Video Express — Evento breve ($2,200 MXN)">Video Express — Evento breve ($2,200)</option>
                                     <option value="Video Corporativo — Negocio / Marca ($3,500 MXN)">Video Corporativo — Negocio / Marca ($3,500)</option>
                                 </optgroup>
                                 <optgroup label="📱 Contenido Social">
@@ -2700,6 +3048,229 @@
 
                 </form>
             </div>
+        </div>
+    </section>
+
+    <!-- ── CONFIGURADOR DE PAQUETE ── -->
+    <section class="configurator-section" id="sec-configurador">
+        <div class="wrap">
+            <div class="reveal">
+                <div class="fancy-hr"><span class="fancy-hr-icon">◆</span></div>
+                <span class="section-label">A tu medida</span>
+                <h2 class="section-title">Arma tu <em>Paquete Personalizado</em></h2>
+                <div class="section-rule"><div class="section-rule-dot"></div></div>
+                <p style="color:var(--mist); font-size:.88rem; margin-bottom:36px; max-width:560px;">Elige solo lo que necesitas. El precio se calcula en tiempo real y al terminar generamos el mensaje de WhatsApp listo para enviar.</p>
+            </div>
+
+            <div class="configurator-wrap reveal">
+
+                <!-- ── MÓDULOS DE CONFIGURACIÓN ── -->
+                <div class="config-modules">
+
+                    <!-- HORAS DE COBERTURA -->
+                    <div class="config-module">
+                        <div class="config-module-header">
+                            <div class="config-module-title">
+                                <span class="config-module-icon">🕐</span>
+                                Horas de cobertura
+                            </div>
+                            <div class="config-module-price" id="price-horas">$0</div>
+                        </div>
+                        <div class="config-slider-row">
+                            <input type="range" class="config-slider" id="slider-horas"
+                                min="0" max="12" step="1" value="0"
+                                oninput="updateConfigurator()">
+                            <div class="config-slider-val">
+                                <span id="val-horas">0</span>
+                                <div style="font-size:.6rem; color:var(--gold-dk);">hrs</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:.68rem; color:var(--gold-dk); margin-top:6px;">
+                            <span>Sin cobertura</span>
+                            <span>Primera hora $1,200 · Adicionales $900/hr</span>
+                        </div>
+                    </div>
+
+                    <!-- VIDEO -->
+                    <div class="config-module">
+                        <div class="config-module-header">
+                            <div class="config-module-title">
+                                <span class="config-module-icon">🎬</span>
+                                Video profesional editado
+                            </div>
+                            <div class="config-module-price" id="price-video">$0</div>
+                        </div>
+                        <div class="config-toggle-row">
+                            <span class="config-toggle-label">Video editado del evento con música (10–15 min) entregado en USB + enlace de descarga</span>
+                            <label class="config-toggle">
+                                <input type="checkbox" id="toggle-video" onchange="updateConfigurator()">
+                                <span class="config-toggle-track"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- IMPRESIONES -->
+                    <div class="config-module">
+                        <div class="config-module-header">
+                            <div class="config-module-title">
+                                <span class="config-module-icon">🖼️</span>
+                                Fotos impresas
+                            </div>
+                            <div class="config-module-price" id="price-impresiones">$0</div>
+                        </div>
+                        <div class="config-qty-row">
+                            <button class="config-qty-btn" onclick="changeQty('impresiones', -25)">−</button>
+                            <div class="config-qty-val">
+                                <span id="val-impresiones">0</span>
+                                <div class="config-qty-sub">fotos</div>
+                            </div>
+                            <button class="config-qty-btn" onclick="changeQty('impresiones', 25)">+</button>
+                            <span style="font-size:.72rem; color:var(--gold-dk); margin-left:8px;">$8/foto (mín. 25)</span>
+                        </div>
+                    </div>
+
+                    <!-- SESIÓN PREVIA -->
+                    <div class="config-module">
+                        <div class="config-module-header">
+                            <div class="config-module-title">
+                                <span class="config-module-icon">✨</span>
+                                Sesión previa (pre-evento)
+                            </div>
+                            <div class="config-module-price" id="price-sesion-previa">$0</div>
+                        </div>
+                        <div class="config-toggle-row">
+                            <span class="config-toggle-label">Sesión fotográfica profesional antes del evento + cuadro enmarcado de la mejor foto</span>
+                            <label class="config-toggle">
+                                <input type="checkbox" id="toggle-sesion-previa" onchange="updateConfigurator()">
+                                <span class="config-toggle-track"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- DRONE -->
+                    <div class="config-module">
+                        <div class="config-module-header">
+                            <div class="config-module-title">
+                                <span class="config-module-icon">🚁</span>
+                                Drone — video aéreo
+                            </div>
+                            <div class="config-module-price" id="price-drone">$0</div>
+                        </div>
+                        <div class="config-toggle-row">
+                            <span class="config-toggle-label">Tomas aéreas del evento y locación. Incluye edición e integración al video final (requiere video activo)</span>
+                            <label class="config-toggle">
+                                <input type="checkbox" id="toggle-drone" onchange="updateConfigurator()">
+                                <span class="config-toggle-track"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2° FOTÓGRAFO -->
+                    <div class="config-module">
+                        <div class="config-module-header">
+                            <div class="config-module-title">
+                                <span class="config-module-icon">📷</span>
+                                2° Fotógrafo
+                            </div>
+                            <div class="config-module-price" id="price-foto2">$0</div>
+                        </div>
+                        <div class="config-toggle-row">
+                            <span class="config-toggle-label">Un segundo fotógrafo para cubrir ángulos simultáneos: novia y novio al mismo tiempo, invitados en paralelo</span>
+                            <label class="config-toggle">
+                                <input type="checkbox" id="toggle-foto2" onchange="updateConfigurator()">
+                                <span class="config-toggle-track"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- REDES SOCIALES -->
+                    <div class="config-module">
+                        <div class="config-module-header">
+                            <div class="config-module-title">
+                                <span class="config-module-icon">📲</span>
+                                Contenido para redes sociales
+                            </div>
+                            <div class="config-module-price" id="price-redes">$0</div>
+                        </div>
+                        <div style="display:flex; flex-direction:column; gap:10px;">
+                            <div class="config-toggle-row">
+                                <span class="config-toggle-label">
+                                    <strong style="color:var(--parchment); display:block; margin-bottom:2px;">Next-Day · 15 fotos editadas en 48 hrs</strong>
+                                    Para publicar al día siguiente sin esperar la galería completa
+                                </span>
+                                <label class="config-toggle">
+                                    <input type="checkbox" id="toggle-nextday" onchange="updateConfigurator()">
+                                    <span class="config-toggle-track"></span>
+                                </label>
+                            </div>
+                            <div class="config-toggle-row">
+                                <span class="config-toggle-label">
+                                    <strong style="color:var(--parchment); display:block; margin-bottom:2px;">Content Creator VIP · 30+ clips + Reel resumen</strong>
+                                    Persona dedicada al evento para publicar en tiempo real
+                                </span>
+                                <label class="config-toggle">
+                                    <input type="checkbox" id="toggle-creator" onchange="updateConfigurator()">
+                                    <span class="config-toggle-track"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AMPLIACIÓN ENMARCADA -->
+                    <div class="config-module">
+                        <div class="config-module-header">
+                            <div class="config-module-title">
+                                <span class="config-module-icon">🖼</span>
+                                Ampliación enmarcada 16×20"
+                            </div>
+                            <div class="config-module-price" id="price-marco">$0</div>
+                        </div>
+                        <div class="config-qty-row">
+                            <button class="config-qty-btn" onclick="changeQty('marcos', -1)">−</button>
+                            <div class="config-qty-val">
+                                <span id="val-marcos">0</span>
+                                <div class="config-qty-sub">piezas</div>
+                            </div>
+                            <button class="config-qty-btn" onclick="changeQty('marcos', 1)">+</button>
+                            <span style="font-size:.72rem; color:var(--gold-dk); margin-left:8px;">$1,500/pieza · Marco de madera</span>
+                        </div>
+                    </div>
+
+                </div><!-- /.config-modules -->
+
+                <!-- ── RESUMEN EN TIEMPO REAL ── -->
+                <div class="config-sticky">
+                    <div class="config-summary">
+                        <span class="config-summary-title">📋 Tu paquete</span>
+
+                        <div class="config-total">
+                            <div class="config-total-label">Total estimado</div>
+                            <span class="config-total-price" id="config-grand-total">$0</span>
+                            <div class="config-total-iva">MXN + IVA</div>
+                        </div>
+
+                        <div class="config-line-items" id="config-lines">
+                            <div class="config-empty">Aún no has seleccionado nada.<br>Usa los controles para armar tu paquete.</div>
+                        </div>
+
+                        <button class="btn-wa" id="config-wa-btn"
+                            style="width:100%; justify-content:center; opacity:.4; pointer-events:none; cursor:not-allowed;"
+                            onclick="sendConfigToWhatsApp()">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Enviar cotización por WhatsApp
+                        </button>
+
+                        <button class="config-reset" onclick="resetConfigurator()">↺ Empezar de nuevo</button>
+                    </div>
+
+                    <!-- Comparador de paquetes similares -->
+                    <div id="config-compare" style="display:none; margin-top:14px; padding:16px; background:rgba(200,169,110,.04); border:1px solid rgba(200,169,110,.15); border-radius:12px;">
+                        <div style="font-size:.65rem; letter-spacing:.2em; color:var(--gold-dk); text-transform:uppercase; margin-bottom:10px;">Paquete más cercano</div>
+                        <div id="config-compare-text" style="font-size:.8rem; color:var(--mist); line-height:1.6;"></div>
+                    </div>
+                </div>
+
+            </div><!-- /.configurator-wrap -->
         </div>
     </section>
 
@@ -2985,28 +3556,31 @@
         document.getElementById('results').style.display = 'block';
         document.getElementById('reset-area').style.display = 'block';
 
-        const sEvt = document.getElementById('sec-eventos');
+        const sEvt  = document.getElementById('sec-eventos');
         const sCont = document.getElementById('sec-contenido');
-        const sSes = document.getElementById('sec-sesiones');
-        const sCarta = document.getElementById('sec-carta');
-        const sBiz = document.getElementById('sec-negocios');
+        const sSes  = document.getElementById('sec-sesiones');
+        const sMat  = document.getElementById('sec-maternidad');
+        const sCarta= document.getElementById('sec-carta');
+        const sBiz  = document.getElementById('sec-negocios');
 
-        /* reset */
-        [sEvt,sCont,sSes,sCarta,sBiz].forEach(s => s.style.display = 'block');
+        /* reset — mostrar todo */
+        [sEvt,sCont,sSes,sMat,sCarta,sBiz].forEach(s => { if(s) s.style.display = 'block'; });
         document.querySelectorAll('.filterable').forEach(c => c.style.display = 'block');
 
         if (mode === 'session') {
-            [sEvt,sCont,sCarta,sBiz].forEach(s => s.style.display = 'none');
+            [sEvt,sCont,sMat,sCarta,sBiz].forEach(s => { if(s) s.style.display = 'none'; });
+        } else if (mode === 'maternity') {
+            [sEvt,sCont,sSes,sCarta,sBiz].forEach(s => { if(s) s.style.display = 'none'; });
         } else if (mode === 'carta') {
-            [sEvt,sCont,sSes,sBiz].forEach(s => s.style.display = 'none');
+            [sEvt,sCont,sSes,sMat,sBiz].forEach(s => { if(s) s.style.display = 'none'; });
         } else if (mode === 'negocio') {
-            [sEvt,sCont,sSes,sCarta].forEach(s => s.style.display = 'none');
+            [sEvt,sCont,sSes,sMat,sCarta].forEach(s => { if(s) s.style.display = 'none'; });
         } else if (mode === 'all') {
             /* all visible */
         } else if (mode === 'wizard') {
-            [sSes,sBiz].forEach(s => s.style.display = 'none');
+            [sSes,sMat,sBiz].forEach(s => { if(s) s.style.display = 'none'; });
             if (wType === 'smallEvent') {
-                [sCont,sCarta].forEach(s => s.style.display = 'none');
+                [sCont,sCarta].forEach(s => { if(s) s.style.display = 'none'; });
                 document.querySelectorAll('.filterable').forEach(c => {
                     if (c.dataset.type !== 'smallEvent') c.style.display = 'none';
                 });
@@ -3016,23 +3590,17 @@
                     if (ct === 'smallEvent') { c.style.display = 'none'; return; }
 
                     if (wVideo === 'no') {
-                        // Solo foto: mostrar cv==='no' únicamente
                         if (cv !== 'no') c.style.display = 'none';
                     } else if (wVideo === 'yes') {
-                        // Foto + video clásico: mostrar cv==='yes'
                         if (cv !== 'yes') c.style.display = 'none';
                     } else if (wVideo === 'social') {
-                        // Foto + video + redes: mostrar cv==='social' y cv==='yes' (Signature)
                         if (cv !== 'social' && cv !== 'yes') c.style.display = 'none';
                     } else if (wVideo === 'video-only') {
-                        // Solo video: ocultar sec-eventos, mostrar sec-contenido con videos
                         sEvt.style.display = 'none';
                     } else if (wVideo === 'creator') {
-                        // Content creator VIP: mostrar celebrity y Social VIP
                         if (cv !== 'creator') c.style.display = 'none';
                     }
                 });
-                // Para video-only y creator también mostrar sec-contenido
                 if (wVideo === 'video-only' || wVideo === 'creator') {
                     sCont.style.display = 'block';
                 }
@@ -3148,6 +3716,229 @@
         });
     });
 
+    /* ────────────── PACKAGE CONFIGURATOR ────────────── */
+    // Precios unitarios
+    const PRICES = {
+        horaBase:       1200,   // primera hora
+        horaExtra:       900,   // horas adicionales
+        video:          3500,
+        impresionUnit:     8,   // por foto
+        sesionPrevia:   2500,
+        drone:          1500,
+        foto2:          2500,
+        nextday:        1500,
+        creator:        3500,
+        marco:          1500,   // por pieza
+    };
+
+    // Estado del configurador
+    const configState = {
+        horas:         0,
+        video:         false,
+        impresiones:   0,
+        sesionPrevia:  false,
+        drone:         false,
+        foto2:         false,
+        nextday:       false,
+        creator:       false,
+        marcos:        0,
+    };
+
+    function fmt(n) {
+        return '$' + n.toLocaleString('es-MX');
+    }
+
+    function calcHorasPrice(h) {
+        if (h === 0) return 0;
+        return PRICES.horaBase + Math.max(0, h - 1) * PRICES.horaExtra;
+    }
+
+    function updateConfigurator() {
+        // Leer valores
+        const horas = parseInt(document.getElementById('slider-horas').value);
+        configState.horas        = horas;
+        configState.video        = document.getElementById('toggle-video').checked;
+        configState.sesionPrevia = document.getElementById('toggle-sesion-previa').checked;
+        configState.drone        = document.getElementById('toggle-drone').checked;
+        configState.foto2        = document.getElementById('toggle-foto2').checked;
+        configState.nextday      = document.getElementById('toggle-nextday').checked;
+        configState.creator      = document.getElementById('toggle-creator').checked;
+
+        // Actualizar display del slider
+        document.getElementById('val-horas').textContent = horas;
+
+        // Calcular precios por módulo
+        const pHoras  = calcHorasPrice(horas);
+        const pVideo  = configState.video        ? PRICES.video        : 0;
+        const pImpr   = configState.impresiones  * PRICES.impresionUnit;
+        const pSPrev  = configState.sesionPrevia ? PRICES.sesionPrevia : 0;
+        const pDrone  = configState.drone        ? PRICES.drone        : 0;
+        const pFoto2  = configState.foto2        ? PRICES.foto2        : 0;
+        const pNDay   = configState.nextday      ? PRICES.nextday      : 0;
+        const pCreat  = configState.creator      ? PRICES.creator      : 0;
+        const pMarco  = configState.marcos       * PRICES.marco;
+
+        // Actualizar precios en cada módulo
+        document.getElementById('price-horas').textContent         = pHoras  ? fmt(pHoras)  : '$0';
+        document.getElementById('price-video').textContent         = pVideo  ? fmt(pVideo)  : '$0';
+        document.getElementById('price-impresiones').textContent   = pImpr   ? fmt(pImpr)   : '$0';
+        document.getElementById('price-sesion-previa').textContent = pSPrev  ? fmt(pSPrev)  : '$0';
+        document.getElementById('price-drone').textContent         = pDrone  ? fmt(pDrone)  : '$0';
+        document.getElementById('price-foto2').textContent         = pFoto2  ? fmt(pFoto2)  : '$0';
+        document.getElementById('price-redes').textContent         = (pNDay+pCreat) ? fmt(pNDay+pCreat) : '$0';
+        document.getElementById('price-marco').textContent         = pMarco  ? fmt(pMarco)  : '$0';
+
+        // Total
+        const total = pHoras + pVideo + pImpr + pSPrev + pDrone + pFoto2 + pNDay + pCreat + pMarco;
+        document.getElementById('config-grand-total').textContent = fmt(total);
+
+        // Resumen líneas
+        const lines = [];
+        if (pHoras)  lines.push({ n: `Cobertura ${horas}h`, v: fmt(pHoras) });
+        if (pVideo)  lines.push({ n: 'Video editado',        v: fmt(pVideo) });
+        if (pImpr)   lines.push({ n: `${configState.impresiones} fotos impresas`, v: fmt(pImpr) });
+        if (pSPrev)  lines.push({ n: 'Sesión previa + cuadro', v: fmt(pSPrev) });
+        if (pDrone)  lines.push({ n: 'Drone (video aéreo)',  v: fmt(pDrone) });
+        if (pFoto2)  lines.push({ n: '2° Fotógrafo',         v: fmt(pFoto2) });
+        if (pNDay)   lines.push({ n: 'Next-Day 15 fotos',    v: fmt(pNDay) });
+        if (pCreat)  lines.push({ n: 'Content Creator VIP',  v: fmt(pCreat) });
+        if (pMarco)  lines.push({ n: `${configState.marcos} ampliación(es) enmarcada(s)`, v: fmt(pMarco) });
+
+        const linesEl = document.getElementById('config-lines');
+        if (lines.length === 0) {
+            linesEl.innerHTML = '<div class="config-empty">Aún no has seleccionado nada.<br>Usa los controles para armar tu paquete.</div>';
+        } else {
+            linesEl.innerHTML = lines.map(l =>
+                `<div class="config-line"><span class="config-line-name">${l.n}</span><span class="config-line-val">${l.v}</span></div>`
+            ).join('') +
+            `<div class="config-line" style="border-top:1px solid rgba(200,169,110,.2); padding-top:10px; margin-top:4px;">
+                <span class="config-line-name" style="color:var(--parchment); font-weight:500;">Total</span>
+                <span class="config-line-val" style="font-size:1rem;">${fmt(total)}</span>
+            </div>`;
+        }
+
+        // Botón WhatsApp
+        const waBtn = document.getElementById('config-wa-btn');
+        if (total > 0) {
+            waBtn.style.opacity = '1';
+            waBtn.style.pointerEvents = 'auto';
+            waBtn.style.cursor = 'pointer';
+        } else {
+            waBtn.style.opacity = '.4';
+            waBtn.style.pointerEvents = 'none';
+            waBtn.style.cursor = 'not-allowed';
+        }
+
+        // Comparador de paquetes
+        updateComparator(total, lines);
+    }
+
+    function changeQty(field, delta) {
+        const minVals = { impresiones: 0, marcos: 0 };
+        const maxVals = { impresiones: 500, marcos: 5 };
+
+        configState[field] = Math.min(maxVals[field],
+            Math.max(minVals[field], configState[field] + delta));
+
+        // Sync to display
+        if (field === 'impresiones') document.getElementById('val-impresiones').textContent = configState.impresiones;
+        if (field === 'marcos')      document.getElementById('val-marcos').textContent      = configState.marcos;
+
+        updateConfigurator();
+    }
+
+    function updateComparator(total, lines) {
+        const compareEl = document.getElementById('config-compare');
+        const compareText = document.getElementById('config-compare-text');
+
+        if (total === 0) { compareEl.style.display = 'none'; return; }
+
+        // Catalog packages for comparison
+        const catalog = [
+            { name: 'Paquete Instantes',          price: 1500  },
+            { name: 'Paquete Esencial',           price: 3500  },
+            { name: 'Paquete Recuerdos',          price: 6500  },
+            { name: 'Paquete Retrato',            price: 7000  },
+            { name: 'Paquete Signature',          price: 8000  },
+            { name: 'Paquete Deluxe',             price: 9000  },
+            { name: 'Paquete Celebrity',          price: 12500 },
+        ];
+
+        // Find closest
+        const closest = catalog.reduce((prev, curr) =>
+            Math.abs(curr.price - total) < Math.abs(prev.price - total) ? curr : prev
+        );
+
+        const diff = total - closest.price;
+        const sign = diff > 0 ? '+' : '';
+        const msg = diff === 0
+            ? `Tu configuración coincide exactamente con el <strong style="color:var(--gold)">${closest.name}</strong> ($${closest.price.toLocaleString()}).`
+            : `Tu configuración equivale al <strong style="color:var(--gold)">${closest.name}</strong> (${sign}$${Math.abs(diff).toLocaleString()} respecto a los $${closest.price.toLocaleString()} del catálogo).`;
+
+        compareText.innerHTML = msg;
+        compareEl.style.display = 'block';
+    }
+
+    function resetConfigurator() {
+        document.getElementById('slider-horas').value = 0;
+        ['video','sesion-previa','drone','foto2','nextday','creator'].forEach(id => {
+            document.getElementById('toggle-' + id).checked = false;
+        });
+        configState.impresiones = 0;
+        configState.marcos      = 0;
+        document.getElementById('val-impresiones').textContent = '0';
+        document.getElementById('val-marcos').textContent      = '0';
+        updateConfigurator();
+    }
+
+    function sendConfigToWhatsApp() {
+        // Pedir nombre antes de enviar
+        const nombre = prompt('¿Cómo te llamas? (Para que Roberto pueda identificarte)');
+        if (nombre === null) return; // canceló el prompt
+        const nombreFinal = nombre.trim() || 'Cliente';
+
+        const horas = configState.horas;
+        const total = parseInt(
+            document.getElementById('config-grand-total').textContent.replace(/[$,]/g,'')
+        );
+
+        let msg = `¡Hola Roberto! 📸 Armé mi paquete personalizado en tu catálogo y quisiera cotizarlo.\n`;
+        msg += `\n━━━━━━━━━━━━━━━━━━\n`;
+        msg += `👤 *Nombre:* ${nombreFinal}\n`;
+        msg += `\n🛠️ *Mi configuración:*\n`;
+
+        if (horas > 0)                 msg += `🕐 Cobertura: ${horas} hora(s)\n`;
+        if (configState.video)         msg += '🎬 Video editado: Sí\n';
+        if (configState.impresiones>0) msg += `🖼️ Fotos impresas: ${configState.impresiones} fotos\n`;
+        if (configState.sesionPrevia)  msg += '✨ Sesión previa + cuadro: Sí\n';
+        if (configState.drone)         msg += '🚁 Drone (video aéreo): Sí\n';
+        if (configState.foto2)         msg += '📷 2° Fotógrafo: Sí\n';
+        if (configState.nextday)       msg += '📲 Next-Day (15 fotos 48h): Sí\n';
+        if (configState.creator)       msg += '⭐ Content Creator VIP: Sí\n';
+        if (configState.marcos > 0)    msg += `🖼 Ampliaciones enmarcadas: ${configState.marcos} pieza(s)\n`;
+
+        msg += `\n💰 *Total estimado: $${total.toLocaleString()} MXN + IVA*\n`;
+        msg += '\n━━━━━━━━━━━━━━━━━━\n';
+        msg += 'Quedo pendiente de tu confirmación y disponibilidad. ¡Gracias!';
+
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function scrollToConfigurator() {
+        // Resetear estado del wizard para evitar inconsistencias
+        mode = 'all'; wType = null; wVideo = null;
+        document.getElementById('wizard').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('reset-area').style.display = 'block';
+        // Mostrar todas las secciones
+        document.querySelectorAll('[id^="sec-"]').forEach(s => s.style.display = 'block');
+        document.querySelectorAll('.filterable').forEach(c => c.style.display = 'block');
+        setTimeout(() => {
+            document.getElementById('sec-configurador').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+        initReveal();
+    }
+
     /* ────────────── SAVINGS CALCULATOR ────────────── */
     function calcSaving() {
         const visits = parseInt(document.getElementById('calc-visits')?.value || 4);
@@ -3166,8 +3957,7 @@
         if (valEl) valEl.textContent = saving > 0 ? `$${saving.toLocaleString()}` : '$0';
         if (detEl) detEl.textContent = `${visits} ${label[type]} × $${unitPrice.toLocaleString()} = $${totalSeparate.toLocaleString()} · Membresía = $${membership.toLocaleString()}`;
     }
-    // Init on load
-    document.addEventListener('DOMContentLoaded', () => { calcSaving(); initReveal(); });
+    // Init on load — calcSaving se llama también aquí para evitar doble DOMContentLoaded
 
     /* ────────────── SHARE REFERRAL ────────────── */
     function shareReferral() {
@@ -3255,8 +4045,9 @@
         els.forEach(el => obs.observe(el));
     }
 
-    // Init once the DOM is ready
+    // Init once the DOM is ready — único punto de entrada
     document.addEventListener('DOMContentLoaded', () => {
+        calcSaving();
         initReveal();
     });
 </script>
