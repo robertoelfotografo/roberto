@@ -1809,6 +1809,113 @@
         }
         .config-reset:hover { border-color: var(--gold); color: var(--gold); }
 
+        /* ─────────────────── MULTI-CONFIGURATORS ─────────────────── */
+        /* Sub-menú de configuradores */
+        .configs-submenu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+        .cconfig-btn {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(200,169,110,.25);
+            border-radius: var(--r);
+            padding: 24px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--parchment);
+            font-family: inherit;
+        }
+        .cconfig-btn:hover { border-color: var(--gold); transform: translateY(-3px); background: rgba(200,169,110,.06); }
+        .cconfig-btn .cc-icon { font-size: 2rem; }
+        .cconfig-btn .cc-title { font-family: 'Cormorant Garamond',serif; font-size: 1.1rem; color: var(--gold); font-weight: 600; }
+        .cconfig-btn .cc-sub   { font-size: .74rem; color: var(--mist); line-height: 1.35; }
+
+        /* Shared panel styles */
+        .cconfig-panel {
+            display: none;
+            padding: 80px 24px;
+        }
+        .cconfig-panel.active { display: block; }
+        .cconfig-inner {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 28px;
+            align-items: start;
+        }
+        @media (max-width: 900px) { .cconfig-inner { grid-template-columns: 1fr; } }
+
+        /* Shared module same as config-module */
+        .cmod { background: rgba(255,255,255,.025); border: 1px solid rgba(200,169,110,.15); border-radius: 14px; padding: 20px 22px; margin-bottom: 12px; }
+        .cmod:hover { border-color: rgba(200,169,110,.3); transition: border-color .2s; }
+        .cmod-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .cmod-title { display: flex; align-items: center; gap: 8px; font-size: .88rem; font-weight: 500; color: var(--parchment); }
+        .cmod-price { font-family: 'Cormorant Garamond',serif; font-size: 1.1rem; color: var(--gold); }
+
+        /* Radio pill group */
+        .pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+        .pill-input { display: none; }
+        .pill-label {
+            padding: 7px 16px;
+            border: 1px solid rgba(200,169,110,.22);
+            border-radius: 20px;
+            font-size: .8rem;
+            color: var(--mist);
+            cursor: pointer;
+            transition: var(--transition);
+            user-select: none;
+        }
+        .pill-label:hover { border-color: var(--gold); color: var(--gold-lt); }
+        .pill-input:checked + .pill-label { border-color: var(--gold); background: rgba(200,169,110,.12); color: var(--gold); }
+
+        /* Result summary (shared) */
+        .cresult {
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(200,169,110,.25);
+            border-radius: 16px;
+            padding: 26px;
+            position: sticky;
+            top: 80px;
+        }
+        .cresult-label { font-family:'Cinzel',serif; font-size:.6rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase; margin-bottom:18px; display:block; }
+        .cresult-total { text-align:center; background:rgba(200,169,110,.07); border:1px solid rgba(200,169,110,.2); border-radius:12px; padding:16px; margin-bottom:18px; }
+        .cresult-price { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:300; color:var(--gold); display:block; line-height:1.1; }
+        .cresult-iva { font-size:.7rem; color:var(--gold-dk); }
+        .cresult-lines { display:flex; flex-direction:column; gap:6px; margin-bottom:18px; }
+        .cresult-line { display:flex; justify-content:space-between; font-size:.78rem; padding:5px 0; border-bottom:1px solid rgba(200,169,110,.07); }
+        .cresult-line span:first-child { color:var(--mist); }
+        .cresult-line span:last-child { color:var(--gold); font-weight:500; }
+        .cresult-suggest { background:rgba(200,169,110,.05); border:1px solid rgba(200,169,110,.15); border-radius:10px; padding:12px; font-size:.78rem; color:var(--mist); line-height:1.55; margin-bottom:14px; }
+        .cresult-suggest strong { color:var(--parchment); display:block; margin-bottom:3px; }
+        .cresult-empty { text-align:center; font-size:.8rem; color:var(--gold-dk); font-style:italic; padding:12px 0; }
+
+        /* Comparador */
+        .compare-select-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-bottom:28px; }
+        .compare-pkg-check { display:none; }
+        .compare-pkg-label {
+            display:block; border:1px solid rgba(200,169,110,.2); border-radius:10px;
+            padding:14px 16px; cursor:pointer; transition:var(--transition); text-align:center;
+        }
+        .compare-pkg-label:hover { border-color:var(--gold); background:rgba(200,169,110,.05); }
+        .compare-pkg-check:checked + .compare-pkg-label { border-color:var(--gold); background:rgba(200,169,110,.1); }
+        .compare-pkg-label .cpkg-name { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--gold); font-weight:600; }
+        .compare-pkg-label .cpkg-price { font-size:.78rem; color:var(--mist); margin-top:3px; }
+        .compare-table { width:100%; border-collapse:collapse; font-size:.82rem; }
+        .compare-table th { background:rgba(200,169,110,.15); color:var(--gold); font-family:'Cinzel',serif; font-size:.65rem; letter-spacing:.15em; padding:10px 14px; text-align:center; border:1px solid rgba(200,169,110,.2); }
+        .compare-table th.feature-col { text-align:left; color:var(--mist); font-family:inherit; font-size:.78rem; letter-spacing:0; }
+        .compare-table td { padding:9px 14px; border:1px solid rgba(200,169,110,.1); color:var(--mist); text-align:center; }
+        .compare-table td.feature-col { text-align:left; color:var(--parchment); }
+        .compare-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+        .compare-yes { color:#5ab88a; font-size:1.1rem; }
+        .compare-no  { color:rgba(255,255,255,.2); font-size:1.1rem; }
+        .compare-val { color:var(--gold); font-weight:500; }
+
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(22px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -1957,7 +2064,12 @@
                     <button class="menu-btn full-row" onclick="scrollToConfigurator()" style="border-color: rgba(200,169,110,.5); background: rgba(200,169,110,.06);">
                         <span class="menu-icon">⚙️</span>
                         <span class="menu-title" style="color: var(--gold);">Armar mi Paquete a la Medida</span>
-                        <span class="menu-sub">Elige cada elemento y ve el precio en tiempo real</span>
+                        <span class="menu-sub">Evento: elige horas, video, impresiones y extras</span>
+                    </button>
+                    <button class="menu-btn full-row" onclick="scrollToSection('sec-configuradores')" style="border-color: rgba(122,179,224,.4); background: rgba(26,58,92,.06);">
+                        <span class="menu-icon">🛠️</span>
+                        <span class="menu-title" style="color:#7ab3e0;">Calculadoras especializadas</span>
+                        <span class="menu-sub">Sesión · Boda completa · Negocio · Comparador de paquetes</span>
                     </button>
                 </div>
             </div>
@@ -3274,6 +3386,323 @@
         </div>
     </section>
 
+    <!-- ── CALCULADORAS ESPECIALIZADAS ── -->
+    <section class="configurator-section" id="sec-configuradores">
+        <div class="wrap">
+            <div class="reveal">
+                <div class="fancy-hr"><span class="fancy-hr-icon">◆</span></div>
+                <span class="section-label">Herramientas interactivas</span>
+                <h2 class="section-title">Calculadoras <em>especializadas</em></h2>
+                <div class="section-rule"><div class="section-rule-dot"></div></div>
+                <p style="color:var(--mist); font-size:.88rem; margin-bottom:36px; max-width:580px;">Elige la herramienta que mejor se adapta a lo que buscas. Todas calculan en tiempo real y generan el mensaje de WhatsApp listo para enviar.</p>
+            </div>
+
+            <!-- SUB-MENÚ -->
+            <div class="configs-submenu reveal" id="configs-menu">
+                <button class="cconfig-btn" onclick="showCconfig('sesion')">
+                    <span class="cc-icon">📸</span>
+                    <span class="cc-title">Sesión a la Medida</span>
+                    <span class="cc-sub">Tiempo, locación, fotos y extras para tu sesión personal</span>
+                </button>
+                <button class="cconfig-btn" onclick="showCconfig('boda')">
+                    <span class="cc-icon">💍</span>
+                    <span class="cc-title">Calculadora de Boda</span>
+                    <span class="cc-sub">Construye tu cobertura completa desde cero</span>
+                </button>
+                <button class="cconfig-btn" onclick="showCconfig('b2b')">
+                    <span class="cc-icon">🏢</span>
+                    <span class="cc-title">Contenido para Negocio</span>
+                    <span class="cc-sub">Sesión única o membresía según tu volumen mensual</span>
+                </button>
+                <button class="cconfig-btn" onclick="showCconfig('comparador')">
+                    <span class="cc-icon">↔️</span>
+                    <span class="cc-title">Comparador de Paquetes</span>
+                    <span class="cc-sub">Ve dos o tres paquetes lado a lado y elige el mejor</span>
+                </button>
+            </div>
+
+            <!-- ══ SESIÓN A LA MEDIDA ══ -->
+            <div class="cconfig-panel" id="cconfig-sesion">
+                <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+                    <button class="btn btn-ghost" style="padding:8px 18px; font-size:.78rem;" onclick="hideCconfig()">← Volver</button>
+                    <div>
+                        <span style="font-family:'Cinzel',serif; font-size:.62rem; letter-spacing:.3em; color:var(--gold); text-transform:uppercase;">Sesión fotográfica</span>
+                        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:var(--parchment); line-height:1;">A la <em style="color:var(--gold);">Medida</em></h3>
+                    </div>
+                </div>
+                <div class="cconfig-inner">
+                    <div>
+                        <!-- Duración -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">🕐 Duración de la sesión</div><div class="cmod-price" id="sp-horas-price">$0</div></div>
+                            <div class="config-slider-row">
+                                <input type="range" class="config-slider" id="sp-horas" min="1" max="6" step="1" value="1" oninput="calcSesion()">
+                                <div class="config-slider-val"><span id="sp-horas-val">1</span><div style="font-size:.6rem;color:var(--gold-dk)">hr(s)</div></div>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;font-size:.68rem;color:var(--gold-dk);margin-top:6px;"><span>1 hr = $600</span><span>Cada hora adicional = $450</span></div>
+                        </div>
+                        <!-- Locación -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">📍 Tipo de locación</div><div class="cmod-price" id="sp-loc-price">Incluida</div></div>
+                            <div class="pill-group">
+                                <input type="radio" name="sp-loc" id="sp-loc-estudio" value="0" class="pill-input" checked onchange="calcSesion()">
+                                <label for="sp-loc-estudio" class="pill-label">🏛️ Estudio — sin costo extra</label>
+                                <input type="radio" name="sp-loc" id="sp-loc-ext" value="0" class="pill-input" onchange="calcSesion()">
+                                <label for="sp-loc-ext" class="pill-label">🌳 Exterior — sin costo extra</label>
+                                <input type="radio" name="sp-loc" id="sp-loc-dom" value="500" class="pill-input" onchange="calcSesion()">
+                                <label for="sp-loc-dom" class="pill-label">🏠 Domicilio / locación especial +$500</label>
+                            </div>
+                        </div>
+                        <!-- Cambios de ropa -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">👗 Cambios de ropa</div><div class="cmod-price" id="sp-ropa-price">$0</div></div>
+                            <div class="config-qty-row">
+                                <button class="config-qty-btn" onclick="spQty('ropa',-1)">−</button>
+                                <div class="config-qty-val"><span id="sp-ropa-val">1</span><div class="config-qty-sub">cambios</div></div>
+                                <button class="config-qty-btn" onclick="spQty('ropa',1)">+</button>
+                                <span style="font-size:.72rem;color:var(--gold-dk);margin-left:8px;">1 incluido · Adicionales $150/c.u.</span>
+                            </div>
+                        </div>
+                        <!-- Fotos digitales -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">📁 Fotos digitales editadas</div><div class="cmod-price" id="sp-fotos-price">$0</div></div>
+                            <div class="config-qty-row">
+                                <button class="config-qty-btn" onclick="spQty('fotos',-5)">−</button>
+                                <div class="config-qty-val"><span id="sp-fotos-val">10</span><div class="config-qty-sub">fotos</div></div>
+                                <button class="config-qty-btn" onclick="spQty('fotos',5)">+</button>
+                                <span style="font-size:.72rem;color:var(--gold-dk);margin-left:8px;">Hasta 10 = $0 · Adicionales $30/foto</span>
+                            </div>
+                        </div>
+                        <!-- Impresiones -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">🖨️ Fotos impresas</div><div class="cmod-price" id="sp-imp-price">$0</div></div>
+                            <div class="config-qty-row">
+                                <button class="config-qty-btn" onclick="spQty('imp',-5)">−</button>
+                                <div class="config-qty-val"><span id="sp-imp-val">0</span><div class="config-qty-sub">fotos</div></div>
+                                <button class="config-qty-btn" onclick="spQty('imp',5)">+</button>
+                                <span style="font-size:.72rem;color:var(--gold-dk);margin-left:8px;">$8/foto</span>
+                            </div>
+                        </div>
+                        <!-- Marco -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">🖼 Ampliación enmarcada 16×20"</div><div class="cmod-price" id="sp-marco-price">$0</div></div>
+                            <div class="config-toggle-row">
+                                <span class="config-toggle-label">Marco de madera incluido con la mejor foto editada de la sesión</span>
+                                <label class="config-toggle"><input type="checkbox" id="sp-marco" onchange="calcSesion()"><span class="config-toggle-track"></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Panel resumen -->
+                    <div>
+                        <div class="cresult">
+                            <span class="cresult-label">📸 Tu sesión</span>
+                            <div class="cresult-total"><div class="cresult-iva" style="margin-bottom:4px;">Total estimado</div><span class="cresult-price" id="sp-total">$0</span><div class="cresult-iva">MXN + IVA</div></div>
+                            <div class="cresult-lines" id="sp-lines"><div class="cresult-empty">Ajusta los controles para ver el desglose.</div></div>
+                            <div class="cresult-suggest" id="sp-suggest" style="display:none"></div>
+                            <button class="btn-wa" id="sp-wa" style="width:100%;justify-content:center;opacity:.4;pointer-events:none;" onclick="sendSesionWA()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                Cotizar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ CALCULADORA DE BODA ══ -->
+            <div class="cconfig-panel" id="cconfig-boda">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
+                    <button class="btn btn-ghost" style="padding:8px 18px;font-size:.78rem;" onclick="hideCconfig()">← Volver</button>
+                    <div>
+                        <span style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;">Calculadora de cobertura</span>
+                        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--parchment);line-height:1;">Tu <em style="color:var(--gold);">Boda</em> completa</h3>
+                    </div>
+                </div>
+                <div class="cconfig-inner">
+                    <div>
+                        <!-- Horas -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">🕐 Horas de cobertura total</div><div class="cmod-price" id="bw-horas-price">$0</div></div>
+                            <div class="config-slider-row">
+                                <input type="range" class="config-slider" id="bw-horas" min="4" max="14" step="1" value="6" oninput="calcBoda()">
+                                <div class="config-slider-val"><span id="bw-horas-val">6</span><div style="font-size:.6rem;color:var(--gold-dk)">hrs</div></div>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;font-size:.68rem;color:var(--gold-dk);margin-top:6px;"><span>Mínimo 4 hrs · Precio base $3,500</span><span>Adicionales $900/hr</span></div>
+                        </div>
+                        <!-- 2° Fotógrafo -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">📷 Segundo fotógrafo</div><div class="cmod-price" id="bw-foto2-price">$0</div></div>
+                            <div class="config-toggle-row">
+                                <span class="config-toggle-label">Cubre ángulos simultáneos — novia y novio al mismo tiempo, invitados en paralelo</span>
+                                <label class="config-toggle"><input type="checkbox" id="bw-foto2" onchange="calcBoda()"><span class="config-toggle-track"></span></label>
+                            </div>
+                        </div>
+                        <!-- Video -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">🎬 Video del evento</div><div class="cmod-price" id="bw-video-price">$0</div></div>
+                            <div class="pill-group">
+                                <input type="radio" name="bw-video" id="bw-v-no" value="0" class="pill-input" checked onchange="calcBoda()">
+                                <label for="bw-v-no" class="pill-label">Sin video</label>
+                                <input type="radio" name="bw-video" id="bw-v-clasico" value="3500" class="pill-input" onchange="calcBoda()">
+                                <label for="bw-v-clasico" class="pill-label">🎬 Video clásico +$3,500</label>
+                                <input type="radio" name="bw-video" id="bw-v-artistico" value="4500" class="pill-input" onchange="calcBoda()">
+                                <label for="bw-v-artistico" class="pill-label">🎨 Video artístico (Signature) +$4,500</label>
+                            </div>
+                        </div>
+                        <!-- Sesión previa -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">✨ Sesión previa (engagement)</div><div class="cmod-price" id="bw-sesion-price">$0</div></div>
+                            <div class="config-toggle-row">
+                                <span class="config-toggle-label">Sesión profesional antes del gran día + cuadro enmarcado incluido</span>
+                                <label class="config-toggle"><input type="checkbox" id="bw-sesion" onchange="calcBoda()"><span class="config-toggle-track"></span></label>
+                            </div>
+                        </div>
+                        <!-- Drone -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">🚁 Drone — tomas aéreas</div><div class="cmod-price" id="bw-drone-price">$0</div></div>
+                            <div class="config-toggle-row">
+                                <span class="config-toggle-label">Integrado en el video final. Requiere permiso del lugar del evento</span>
+                                <label class="config-toggle"><input type="checkbox" id="bw-drone" onchange="calcBoda()"><span class="config-toggle-track"></span></label>
+                            </div>
+                        </div>
+                        <!-- Impresiones -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">🖨️ Fotos impresas</div><div class="cmod-price" id="bw-imp-price">$0</div></div>
+                            <div class="config-qty-row">
+                                <button class="config-qty-btn" onclick="bwQty('imp',-25)">−</button>
+                                <div class="config-qty-val"><span id="bw-imp-val">100</span><div class="config-qty-sub">fotos</div></div>
+                                <button class="config-qty-btn" onclick="bwQty('imp',25)">+</button>
+                                <span style="font-size:.72rem;color:var(--gold-dk);margin-left:8px;">$8/foto · mín 100</span>
+                            </div>
+                        </div>
+                        <!-- Redes sociales -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">📲 Contenido para redes</div><div class="cmod-price" id="bw-redes-price">$0</div></div>
+                            <div class="pill-group">
+                                <input type="radio" name="bw-redes" id="bw-r-no" value="0" class="pill-input" checked onchange="calcBoda()">
+                                <label for="bw-r-no" class="pill-label">Sin contenido social</label>
+                                <input type="radio" name="bw-redes" id="bw-r-nextday" value="1500" class="pill-input" onchange="calcBoda()">
+                                <label for="bw-r-nextday" class="pill-label">📸 Next-Day 15 fotos +$1,500</label>
+                                <input type="radio" name="bw-redes" id="bw-r-creator" value="3500" class="pill-input" onchange="calcBoda()">
+                                <label for="bw-r-creator" class="pill-label">⭐ Creator VIP en vivo +$3,500</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="cresult">
+                            <span class="cresult-label">💍 Tu boda</span>
+                            <div class="cresult-total"><div class="cresult-iva" style="margin-bottom:4px;">Total estimado</div><span class="cresult-price" id="bw-total">$0</span><div class="cresult-iva">MXN + IVA</div></div>
+                            <div class="cresult-lines" id="bw-lines"><div class="cresult-empty">Ajusta los controles para armar tu cobertura.</div></div>
+                            <div class="cresult-suggest" id="bw-suggest" style="display:none"></div>
+                            <button class="btn-wa" id="bw-wa" style="width:100%;justify-content:center;" onclick="sendBodaWA()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                Cotizar mi boda por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ CONFIGURADOR B2B ══ -->
+            <div class="cconfig-panel" id="cconfig-b2b">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
+                    <button class="btn btn-ghost" style="padding:8px 18px;font-size:.78rem;" onclick="hideCconfig()">← Volver</button>
+                    <div>
+                        <span style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.3em;color:#7ab3e0;text-transform:uppercase;">Para negocios</span>
+                        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--parchment);line-height:1;">Contenido <em style="color:#7ab3e0;">a tu medida</em></h3>
+                    </div>
+                </div>
+                <div class="cconfig-inner">
+                    <div>
+                        <!-- Tipo de contenido -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">📦 Tipo de contenido</div><div class="cmod-price" id="b2-tipo-price">$0</div></div>
+                            <div class="pill-group">
+                                <input type="radio" name="b2-tipo" id="b2-t-foto" value="foto" class="pill-input" checked onchange="calcB2b()">
+                                <label for="b2-t-foto" class="pill-label">📸 Solo fotografía</label>
+                                <input type="radio" name="b2-tipo" id="b2-t-video" value="video" class="pill-input" onchange="calcB2b()">
+                                <label for="b2-t-video" class="pill-label">🎬 Solo video</label>
+                                <input type="radio" name="b2-tipo" id="b2-t-hibrido" value="hibrido" class="pill-input" onchange="calcB2b()">
+                                <label for="b2-t-hibrido" class="pill-label">⚡ Foto + Video (Híbrido)</label>
+                            </div>
+                        </div>
+                        <!-- Frecuencia -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">📅 Frecuencia</div><div class="cmod-price" id="b2-freq-price">$0</div></div>
+                            <div class="pill-group">
+                                <input type="radio" name="b2-freq" id="b2-f-unica" value="unica" class="pill-input" checked onchange="calcB2b()">
+                                <label for="b2-f-unica" class="pill-label">🎯 Sesión única</label>
+                                <input type="radio" name="b2-freq" id="b2-f-mensual" value="mensual" class="pill-input" onchange="calcB2b()">
+                                <label for="b2-f-mensual" class="pill-label">🔄 Mensual (membresía)</label>
+                            </div>
+                        </div>
+                        <!-- Productos / items -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">📋 Productos o servicios a fotografiar</div><div class="cmod-price" id="b2-items-price">$0</div></div>
+                            <div class="config-qty-row">
+                                <button class="config-qty-btn" onclick="b2Qty('items',-5)">−</button>
+                                <div class="config-qty-val"><span id="b2-items-val">10</span><div class="config-qty-sub">items</div></div>
+                                <button class="config-qty-btn" onclick="b2Qty('items',5)">+</button>
+                                <span style="font-size:.72rem;color:var(--gold-dk);margin-left:8px;">Hasta 10 = base · Adicionales $120/item</span>
+                            </div>
+                        </div>
+                        <!-- Retrato corporativo -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">👔 Retrato corporativo del equipo</div><div class="cmod-price" id="b2-retrato-price">$0</div></div>
+                            <div class="config-toggle-row">
+                                <span class="config-toggle-label">Retratos profesionales para LinkedIn, web o directorio. 45 min, hasta 5 personas</span>
+                                <label class="config-toggle"><input type="checkbox" id="b2-retrato" onchange="calcB2b()"><span class="config-toggle-track"></span></label>
+                            </div>
+                        </div>
+                        <!-- Formatos entrega -->
+                        <div class="cmod">
+                            <div class="cmod-hdr"><div class="cmod-title">📐 Formatos de entrega</div><div class="cmod-price" id="b2-fmt-price">Incluidos</div></div>
+                            <div class="pill-group">
+                                <input type="radio" name="b2-fmt" id="b2-fmt-web" value="web" class="pill-input" checked onchange="calcB2b()">
+                                <label for="b2-fmt-web" class="pill-label">🌐 Solo web (horizontal)</label>
+                                <input type="radio" name="b2-fmt" id="b2-fmt-social" value="social" class="pill-input" onchange="calcB2b()">
+                                <label for="b2-fmt-social" class="pill-label">📱 Solo redes (vertical 9:16)</label>
+                                <input type="radio" name="b2-fmt" id="b2-fmt-ambos" value="ambos" class="pill-input" onchange="calcB2b()">
+                                <label for="b2-fmt-ambos" class="pill-label">✅ Ambos formatos +$300</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="cresult">
+                            <span class="cresult-label">🏢 Tu contenido</span>
+                            <div class="cresult-total"><div class="cresult-iva" style="margin-bottom:4px;">Total estimado</div><span class="cresult-price" id="b2-total">$0</span><div class="cresult-iva" id="b2-recurrence">MXN + IVA</div></div>
+                            <div class="cresult-lines" id="b2-lines"><div class="cresult-empty">Ajusta las opciones para ver tu propuesta.</div></div>
+                            <div class="cresult-suggest" id="b2-suggest" style="display:none"></div>
+                            <button class="btn-wa" id="b2-wa" style="width:100%;justify-content:center;" onclick="sendB2bWA()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                Solicitar propuesta por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ COMPARADOR DE PAQUETES ══ -->
+            <div class="cconfig-panel" id="cconfig-comparador">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
+                    <button class="btn btn-ghost" style="padding:8px 18px;font-size:.78rem;" onclick="hideCconfig()">← Volver</button>
+                    <div>
+                        <span style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;">Herramienta de decisión</span>
+                        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--parchment);line-height:1;">Comparador de <em style="color:var(--gold);">Paquetes</em></h3>
+                    </div>
+                </div>
+                <p style="font-size:.88rem;color:var(--mist);margin-bottom:24px;">Selecciona hasta 3 paquetes para verlos lado a lado. Ideal para decidir entre opciones similares.</p>
+                <div class="compare-select-grid" id="compare-select-grid">
+                    <!-- generado por JS -->
+                </div>
+                <div id="compare-table-wrap" style="display:none;overflow-x:auto;">
+                    <table class="compare-table" id="compare-table"></table>
+                </div>
+                <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;" id="compare-actions" style="display:none"></div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ── TESTIMONIOS ── -->
     <section class="testimonials-section">
         <div class="wrap">
@@ -3938,6 +4367,339 @@
         }, 100);
         initReveal();
     }
+
+    function scrollToSection(id) {
+        mode = 'all'; wType = null; wVideo = null;
+        document.getElementById('wizard').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('reset-area').style.display = 'block';
+        document.querySelectorAll('[id^="sec-"]').forEach(s => s.style.display = 'block');
+        document.querySelectorAll('.filterable').forEach(c => c.style.display = 'block');
+        setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+        initReveal();
+        // Init comparador on first open
+        if (id === 'sec-configuradores') buildCompareGrid();
+    }
+
+    /* ─── SHOW/HIDE sub-configurator panels ─── */
+    function showCconfig(name) {
+        document.getElementById('configs-menu').style.display = 'none';
+        document.querySelectorAll('.cconfig-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('cconfig-' + name).classList.add('active');
+        if (name === 'sesion')     calcSesion();
+        if (name === 'boda')       calcBoda();
+        if (name === 'b2b')        calcB2b();
+        if (name === 'comparador') buildCompareGrid();
+        document.getElementById('sec-configuradores').scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+    function hideCconfig() {
+        document.querySelectorAll('.cconfig-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('configs-menu').style.display = 'grid';
+    }
+
+    /* ─── HELPERS ─── */
+    const $fmt = n => '$' + n.toLocaleString('es-MX');
+    function waBtn(id, total) {
+        const btn = document.getElementById(id);
+        if (!btn) return;
+        if (total > 0) { btn.style.opacity='1'; btn.style.pointerEvents='auto'; }
+        else           { btn.style.opacity='.4'; btn.style.pointerEvents='none'; }
+    }
+    function renderLines(containerId, lines) {
+        const el = document.getElementById(containerId);
+        if (!lines.length) { el.innerHTML='<div class="cresult-empty">Ajusta los controles.</div>'; return; }
+        el.innerHTML = lines.map(([n,v])=>`<div class="cresult-line"><span>${n}</span><span>${$fmt(v)}</span></div>`).join('')
+            + `<div class="cresult-line" style="border-top:1px solid rgba(200,169,110,.2);margin-top:4px;padding-top:6px;"><span style="color:var(--parchment);font-weight:500;">Total</span><span style="font-size:1rem;">${$fmt(lines.reduce((s,[,v])=>s+v,0))}</span></div>`;
+    }
+
+    /* ═══════════════════════════════════════════
+       SESIÓN A LA MEDIDA
+    ═══════════════════════════════════════════ */
+    const spState = { horas:1, loc:0, ropa:1, fotos:10, imp:0, marco:false };
+
+    function spQty(field, delta) {
+        const limits = { ropa:[1,6,1], fotos:[10,60,5], imp:[0,100,5] };
+        const [mn,mx] = limits[field];
+        spState[field] = Math.min(mx, Math.max(mn, spState[field]+delta));
+        document.getElementById('sp-'+field+'-val').textContent = spState[field];
+        calcSesion();
+    }
+
+    function calcSesion() {
+        spState.horas = +document.getElementById('sp-horas').value;
+        const locSel  = document.querySelector('input[name="sp-loc"]:checked');
+        spState.loc   = locSel ? +locSel.value : 0;
+        spState.marco = document.getElementById('sp-marco').checked;
+        document.getElementById('sp-horas-val').textContent = spState.horas;
+
+        const pHoras = 600 + (spState.horas-1)*450;
+        const pLoc   = spState.loc;
+        const pRopa  = Math.max(0,(spState.ropa-1))*150;
+        const pFotos = Math.max(0,(spState.fotos-10))*30;
+        const pImp   = spState.imp*8;
+        const pMarco = spState.marco ? 1500 : 0;
+        const total  = pHoras+pLoc+pRopa+pFotos+pImp+pMarco;
+
+        document.getElementById('sp-horas-price').textContent = $fmt(pHoras);
+        document.getElementById('sp-loc-price').textContent   = pLoc?$fmt(pLoc):'Incluida';
+        document.getElementById('sp-ropa-price').textContent  = pRopa?$fmt(pRopa):'$0';
+        document.getElementById('sp-fotos-price').textContent = pFotos?$fmt(pFotos):'Incluidas';
+        document.getElementById('sp-imp-price').textContent   = pImp?$fmt(pImp):'$0';
+        document.getElementById('sp-marco-price').textContent = pMarco?$fmt(pMarco):'$0';
+        document.getElementById('sp-total').textContent       = $fmt(total);
+
+        const lines = [];
+        lines.push([`${spState.horas} hora(s) de sesión`, pHoras]);
+        if(pLoc)   lines.push(['Locación especial', pLoc]);
+        if(pRopa)  lines.push([`${spState.ropa-1} cambio(s) adicional(es)`, pRopa]);
+        if(pFotos) lines.push([`${spState.fotos-10} fotos extra`, pFotos]);
+        if(pImp)   lines.push([`${spState.imp} fotos impresas`, pImp]);
+        if(pMarco) lines.push(['Ampliación enmarcada 16×20"', pMarco]);
+        renderLines('sp-lines', lines);
+
+        // Sugerencia de paquete
+        const suggest = document.getElementById('sp-suggest');
+        const pkgs = [{n:'Mini Sesión',p:750},{n:'Sesión Clásica',p:1500},{n:'Sesión Premium',p:2500},{n:'Sesión de Compromiso',p:2800}];
+        const closest = pkgs.reduce((a,b)=>Math.abs(b.p-total)<Math.abs(a.p-total)?b:a);
+        const diff = total-closest.p;
+        if(Math.abs(diff)<800 && total>0){
+            suggest.style.display='block';
+            suggest.innerHTML=`<strong>💡 Paquete más cercano: ${closest.n} (${$fmt(closest.p)})</strong>${diff>0?`Tu configuración cuesta ${$fmt(diff)} más que el paquete. ${closest.n} puede ser más conveniente.`:`Ahorrarías ${$fmt(Math.abs(diff))} eligiendo el paquete fijo.`}`;
+        } else { suggest.style.display='none'; }
+
+        waBtn('sp-wa', total);
+    }
+
+    function sendSesionWA() {
+        const nombre = prompt('¿Cómo te llamas?');
+        if(nombre===null) return;
+        const total = 600+(spState.horas-1)*450+spState.loc+Math.max(0,(spState.ropa-1))*150+Math.max(0,(spState.fotos-10))*30+spState.imp*8+(spState.marco?1500:0);
+        const locNames = {0:'Estudio o exterior',500:'Domicilio / locación especial'};
+        let msg=`¡Hola Roberto! 📸 Armé mi sesión fotográfica a la medida.\n\n👤 *Nombre:* ${nombre||'Cliente'}\n\n━━━━━━━━━━━━━━━━━━\n⏱ *Duración:* ${spState.horas} hora(s)\n📍 *Locación:* ${locNames[spState.loc]||'Especial'}\n👗 *Cambios de ropa:* ${spState.ropa}\n📁 *Fotos digitales:* ${spState.fotos}\n`;
+        if(spState.imp) msg+=`🖨️ *Fotos impresas:* ${spState.imp}\n`;
+        if(spState.marco) msg+=`🖼 *Ampliación enmarcada:* Sí\n`;
+        msg+=`\n💰 *Total estimado: ${$fmt(total)} MXN + IVA*\n━━━━━━━━━━━━━━━━━━\nQuedo pendiente. ¡Gracias!`;
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
+    }
+
+    /* ═══════════════════════════════════════════
+       CALCULADORA DE BODA
+    ═══════════════════════════════════════════ */
+    const bwState = { imp:100 };
+
+    function bwQty(field,delta){
+        const limits={imp:[100,300,25]};
+        const [mn,mx]=limits[field];
+        bwState[field]=Math.min(mx,Math.max(mn,bwState[field]+delta));
+        document.getElementById('bw-'+field+'-val').textContent=bwState[field];
+        calcBoda();
+    }
+
+    function calcBoda(){
+        const horas = +document.getElementById('bw-horas').value;
+        const foto2 = document.getElementById('bw-foto2').checked;
+        const videoVal = +document.querySelector('input[name="bw-video"]:checked').value;
+        const sesion = document.getElementById('bw-sesion').checked;
+        const drone  = document.getElementById('bw-drone').checked;
+        const redesVal = +document.querySelector('input[name="bw-redes"]:checked').value;
+        document.getElementById('bw-horas-val').textContent=horas;
+
+        const pHoras  = 3500 + Math.max(0,horas-4)*900;
+        const pFoto2  = foto2?2500:0;
+        const pVideo  = videoVal;
+        const pSesion = sesion?2500:0;
+        const pDrone  = drone?1500:0;
+        const pImp    = bwState.imp*8;
+        const pRedes  = redesVal;
+        const total   = pHoras+pFoto2+pVideo+pSesion+pDrone+pImp+pRedes;
+
+        document.getElementById('bw-horas-price').textContent  = $fmt(pHoras);
+        document.getElementById('bw-foto2-price').textContent  = pFoto2?$fmt(pFoto2):'$0';
+        document.getElementById('bw-video-price').textContent  = pVideo?$fmt(pVideo):'$0';
+        document.getElementById('bw-sesion-price').textContent = pSesion?$fmt(pSesion):'$0';
+        document.getElementById('bw-drone-price').textContent  = pDrone?$fmt(pDrone):'$0';
+        document.getElementById('bw-imp-price').textContent    = $fmt(pImp);
+        document.getElementById('bw-redes-price').textContent  = pRedes?$fmt(pRedes):'$0';
+        document.getElementById('bw-total').textContent        = $fmt(total);
+
+        const videoLabel={0:'',3500:'Video clásico',4500:'Video artístico'};
+        const redesLabel={0:'',1500:'Next-Day 15 fotos',3500:'Creator VIP en vivo'};
+        const lines=[[`Cobertura ${horas} hrs`,pHoras]];
+        if(pFoto2)  lines.push(['2° Fotógrafo',pFoto2]);
+        if(pVideo)  lines.push([videoLabel[videoVal],pVideo]);
+        if(pSesion) lines.push(['Sesión previa + cuadro',pSesion]);
+        if(pDrone)  lines.push(['Drone',pDrone]);
+        lines.push([`${bwState.imp} fotos impresas`,pImp]);
+        if(pRedes)  lines.push([redesLabel[redesVal],pRedes]);
+        renderLines('bw-lines',lines);
+
+        // Sugerencia
+        const pkgs=[{n:'Paquete Recuerdos',p:6500},{n:'Paquete Retrato',p:7000},{n:'Paquete Signature',p:8000},{n:'Paquete Deluxe',p:9000},{n:'Paquete Celebrity',p:12500}];
+        const sug=document.getElementById('bw-suggest');
+        const closest=pkgs.reduce((a,b)=>Math.abs(b.p-total)<Math.abs(a.p-total)?b:a);
+        const diff=total-closest.p;
+        sug.style.display='block';
+        sug.innerHTML=`<strong>💡 Paquete más cercano: ${closest.n} (${$fmt(closest.p)})</strong>${diff===0?'Tu configuración coincide exactamente.':diff>0?`Tu configuración cuesta ${$fmt(diff)} más que el paquete base.`:`Con el paquete fijo ahorrarías ${$fmt(Math.abs(diff))}.`}`;
+    }
+
+    function sendBodaWA(){
+        const nombre=prompt('¿Cómo te llamas?');
+        if(nombre===null) return;
+        const horas=+document.getElementById('bw-horas').value;
+        const videoVal=+document.querySelector('input[name="bw-video"]:checked').value;
+        const redesVal=+document.querySelector('input[name="bw-redes"]:checked').value;
+        const videoLabel={0:'No',3500:'Video clásico',4500:'Video artístico (Signature)'};
+        const redesLabel={0:'No',1500:'Next-Day 15 fotos',3500:'Creator VIP en vivo'};
+        const total=3500+Math.max(0,horas-4)*900+(document.getElementById('bw-foto2').checked?2500:0)+videoVal+(document.getElementById('bw-sesion').checked?2500:0)+(document.getElementById('bw-drone').checked?1500:0)+bwState.imp*8+redesVal;
+        let msg=`¡Hola Roberto! 💍 Armé la cobertura de mi boda/evento.\n\n👤 *Nombre:* ${nombre||'Cliente'}\n\n━━━━━━━━━━━━━━━━━━\n🕐 *Horas:* ${horas}\n📷 *2° Fotógrafo:* ${document.getElementById('bw-foto2').checked?'Sí':'No'}\n🎬 *Video:* ${videoLabel[videoVal]}\n✨ *Sesión previa:* ${document.getElementById('bw-sesion').checked?'Sí':'No'}\n🚁 *Drone:* ${document.getElementById('bw-drone').checked?'Sí':'No'}\n🖨️ *Fotos impresas:* ${bwState.imp}\n📲 *Redes sociales:* ${redesLabel[redesVal]}\n\n💰 *Total estimado: ${$fmt(total)} MXN + IVA*\n━━━━━━━━━━━━━━━━━━\nQuedo pendiente. ¡Gracias!`;
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
+    }
+
+    /* ═══════════════════════════════════════════
+       CONFIGURADOR B2B
+    ═══════════════════════════════════════════ */
+    const b2State = { items:10 };
+
+    function b2Qty(field,delta){
+        const limits={items:[5,100,5]};
+        const [mn,mx]=limits[field];
+        b2State[field]=Math.min(mx,Math.max(mn,b2State[field]+delta));
+        document.getElementById('b2-'+field+'-val').textContent=b2State[field];
+        calcB2b();
+    }
+
+    function calcB2b(){
+        const tipo  = document.querySelector('input[name="b2-tipo"]:checked').value;
+        const freq  = document.querySelector('input[name="b2-freq"]:checked').value;
+        const fmt   = document.querySelector('input[name="b2-fmt"]:checked').value;
+        const retrato = document.getElementById('b2-retrato').checked;
+
+        const baseByTipo = {foto:1800, video:2500, hibrido:2900};
+        const base = baseByTipo[tipo];
+        const pItems = Math.max(0,(b2State.items-10))*120;
+        const pRetrato = retrato?1800:0;
+        const pFmt  = fmt==='ambos'?300:0;
+        const totalUnica = base+pItems+pRetrato+pFmt;
+        const totalMensual = 2500;
+
+        const isMonthly = freq==='mensual';
+        const total = isMonthly ? totalMensual : totalUnica;
+        const saving = isMonthly ? Math.max(0,totalUnica-totalMensual) : 0;
+
+        const tipoLabel={foto:'Fotografía de producto',video:'Video corporativo',hibrido:'Contenido Híbrido'};
+        document.getElementById('b2-tipo-price').textContent  = $fmt(base);
+        document.getElementById('b2-items-price').textContent = pItems?$fmt(pItems):'Incluidos';
+        document.getElementById('b2-retrato-price').textContent = pRetrato?$fmt(pRetrato):'$0';
+        document.getElementById('b2-fmt-price').textContent   = pFmt?'+$300':'Incluido';
+        document.getElementById('b2-total').textContent       = $fmt(total);
+        document.getElementById('b2-recurrence').textContent  = isMonthly?'MXN/mes + IVA':'MXN + IVA';
+
+        const lines=isMonthly?[['Membresía Iguala Visual',2500]]:[
+            [tipoLabel[tipo], base],
+            ...(pItems?[[`${b2State.items-10} items extra`,pItems]]:[]),
+            ...(pRetrato?[['Retrato corporativo equipo',pRetrato]]:[]),
+            ...(pFmt?[['Ambos formatos',pFmt]]:[]),
+        ];
+        renderLines('b2-lines',lines);
+
+        const sug=document.getElementById('b2-suggest');
+        if(isMonthly && saving>0){
+            sug.style.display='block';
+            sug.innerHTML=`<strong>💡 Con la membresía ahorras ${$fmt(saving)}/mes</strong>vs contratar estas sesiones por separado. Precio bloqueado por 12 meses.`;
+        } else if(!isMonthly && totalUnica>=2400){
+            sug.style.display='block';
+            sug.innerHTML=`<strong>💡 ¿Necesitarás contenido mensual?</strong>La membresía Iguala Visual ($${(2500).toLocaleString()}/mes) incluye 4 visitas mensuales y puede ser más económica si tu volumen es constante.`;
+        } else { sug.style.display='none'; }
+    }
+
+    function sendB2bWA(){
+        const nombre=prompt('¿Cómo te llamas? / ¿Nombre de tu negocio?');
+        if(nombre===null) return;
+        const tipo=document.querySelector('input[name="b2-tipo"]:checked').value;
+        const freq=document.querySelector('input[name="b2-freq"]:checked').value;
+        const tipoLabel={foto:'Fotografía de producto',video:'Video corporativo',hibrido:'Foto + Video Híbrido'};
+        const fmtLabel={web:'Solo web (horizontal)',social:'Solo redes (vertical)',ambos:'Ambos formatos'};
+        const fmtVal=document.querySelector('input[name="b2-fmt"]:checked').value;
+        const total=freq==='mensual'?2500:({foto:1800,video:2500,hibrido:2900}[tipo]+Math.max(0,(b2State.items-10))*120+(document.getElementById('b2-retrato').checked?1800:0)+(fmtVal==='ambos'?300:0));
+        let msg=`¡Hola Roberto! 🏢 Configuré el contenido para mi negocio.\n\n👤 *Nombre / Negocio:* ${nombre||'Cliente'}\n\n━━━━━━━━━━━━━━━━━━\n📦 *Tipo:* ${tipoLabel[tipo]}\n📅 *Modalidad:* ${freq==='mensual'?'Membresía mensual':'Sesión única'}\n📋 *Items a fotografiar:* ${b2State.items}\n👔 *Retrato corporativo:* ${document.getElementById('b2-retrato').checked?'Sí':'No'}\n📐 *Formatos:* ${fmtLabel[fmtVal]}\n\n💰 *Total: ${$fmt(total)} MXN${freq==='mensual'?'/mes':''} + IVA*\n━━━━━━━━━━━━━━━━━━\nQuedo pendiente. ¡Gracias!`;
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
+    }
+
+    /* ═══════════════════════════════════════════
+       COMPARADOR DE PAQUETES
+    ═══════════════════════════════════════════ */
+    const COMPARE_PKGS = [
+        { id:'instantes', name:'Instantes', price:1500, horas:'2',foto2:false,video:false,sesion:false,impresiones:'—',marco:false,book:false,redes:false,drone:false,entrega:'3–5 días' },
+        { id:'esencial',  name:'Esencial',  price:3500, horas:'Evento',foto2:false,video:false,sesion:false,impresiones:'100',marco:false,book:false,redes:false,drone:false,entrega:'7–10 días' },
+        { id:'recuerdos', name:'Recuerdos', price:6500, horas:'Evento',foto2:false,video:true, sesion:false,impresiones:'100',marco:false,book:false,redes:false,drone:false,entrega:'15–20 días' },
+        { id:'retrato',   name:'Retrato',   price:7000, horas:'Evento',foto2:false,video:false,sesion:true, impresiones:'100',marco:true, book:false,redes:false,drone:false,entrega:'10–15 días' },
+        { id:'signature', name:'Signature', price:8000, horas:'Evento',foto2:false,video:true, sesion:true, impresiones:'120',marco:true, book:false,redes:false,drone:false,entrega:'15–20 días' },
+        { id:'deluxe',    name:'Deluxe',    price:9000, horas:'Evento',foto2:false,video:true, sesion:true, impresiones:'100',marco:true, book:false,redes:true, drone:false,entrega:'15–20 días' },
+        { id:'celebrity', name:'Celebrity', price:12500,horas:'10 hrs',foto2:true, video:true, sesion:true, impresiones:'200',marco:true, book:true, redes:true, drone:false,entrega:'7 días' },
+    ];
+    const COMPARE_FEATURES = [
+        { key:'price',      label:'Precio MXN' },
+        { key:'horas',      label:'Horas / cobertura' },
+        { key:'foto2',      label:'2° Fotógrafo' },
+        { key:'video',      label:'Video editado' },
+        { key:'sesion',     label:'Sesión previa' },
+        { key:'impresiones',label:'Fotos impresas' },
+        { key:'marco',      label:'Ampliación enmarcada' },
+        { key:'book',       label:'Book impreso premium' },
+        { key:'redes',      label:'Contenido para redes' },
+        { key:'entrega',    label:'Tiempo de entrega' },
+    ];
+
+    function buildCompareGrid(){
+        const grid = document.getElementById('compare-select-grid');
+        if (!grid) return;
+        grid.innerHTML = COMPARE_PKGS.map(p =>
+            `<div>
+                <input type="checkbox" class="compare-pkg-check" id="cpkg-${p.id}" value="${p.id}" onchange="renderComparatorTable()">
+                <label for="cpkg-${p.id}" class="compare-pkg-label">
+                    <div class="cpkg-name">${p.name}</div>
+                    <div class="cpkg-price">${$fmt(p.price)}</div>
+                </label>
+            </div>`
+        ).join('');
+    }
+
+    function renderComparatorTable(){
+        const selected = COMPARE_PKGS.filter(p => {
+            const el = document.getElementById('cpkg-'+p.id);
+            return el && el.checked;
+        });
+        const wrap = document.getElementById('compare-table-wrap');
+        const actions = document.getElementById('compare-actions');
+        if (selected.length < 2) { wrap.style.display='none'; actions.style.display='none'; return; }
+        wrap.style.display='block';
+
+        const thead = `<thead><tr><th class="feature-col">Característica</th>${selected.map(p=>`<th>${p.name}<br><span style="font-size:.8rem;color:var(--mist)">${$fmt(p.price)}</span></th>`).join('')}</tr></thead>`;
+        const tbody = COMPARE_FEATURES.map(f => {
+            const cells = selected.map(p => {
+                const v = p[f.key];
+                if(typeof v==='boolean') return `<td>${v?'<span class="compare-yes">✓</span>':'<span class="compare-no">—</span>'}</td>`;
+                if(f.key==='price') return `<td><span class="compare-val">${$fmt(v)}</span></td>`;
+                return `<td><span class="compare-val">${v}</span></td>`;
+            }).join('');
+            return `<tr><td class="feature-col">${f.label}</td>${cells}</tr>`;
+        }).join('');
+
+        document.getElementById('compare-table').innerHTML = thead+`<tbody>${tbody}</tbody>`;
+
+        // Best value row
+        const maxP=selected.reduce((a,b)=>a.price>b.price?a:b);
+        const minP=selected.reduce((a,b)=>a.price<b.price?a:b);
+        actions.style.display='flex';
+        actions.innerHTML=`
+            <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`¡Hola Roberto! Vi el comparador de paquetes y me interesa cotizar. Estoy evaluando: ${selected.map(p=>p.name).join(' vs ')}. ¿Me puedes orientar?`)}" target="_blank" class="btn btn-gold">💬 Pedir orientación por WhatsApp</a>
+            <span style="font-size:.78rem;color:var(--mist);align-self:center;">Comparando: ${selected.map(p=>p.name).join(' · ')}</span>`;
+    }
+
+    /* ─── scrollToSection ─── */
 
     /* ────────────── SAVINGS CALCULATOR ────────────── */
     function calcSaving() {
